@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YumiHub - Личный хаб</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f0f0f, #1a1a2e);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            text-align: center;
+            max-width: 700px;
+            padding: 40px 20px;
+        }
+        h1 {
+            font-size: 3.5rem;
+            margin: 0 0 10px 0;
+            background: linear-gradient(90deg, #00d4ff, #7b68ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            font-size: 1.3rem;
+            color: #a0a0a0;
+            margin-bottom: 40px;
+        }
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #00d4ff, #7b68ee);
+            color: white;
+            padding: 18px 50px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            margin: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+        .download-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.4);
+        }
+        .version {
+            margin-top: 30px;
+            color: #888;
+        }
+        footer {
+            margin-top: 80px;
+            color: #555;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>YumiHub</h1>
+        <p class="subtitle">Твой личный центр управления</p>
+        
+        <a href="YumiHub.exe" class="download-btn">
+            ⬇ Скачать YumiHub.exe
+        </a>
+        
+        <div class="version">
+            Текущая версия: <strong id="current-version">2.0.0</strong>
+        </div>
+        
+        <footer>
+            © 2026 YumiHub • Автообновление включено в программе
+        </footer>
+    </div>
+</body>
+</html>
