@@ -24,6 +24,7 @@
             padding: 20px;
         }
 
+        /* --- Фоновый градиент --- */
         .bg-glow {
             position: fixed;
             top: 0;
@@ -37,6 +38,7 @@
                         #080818;
         }
 
+        /* --- Сетка с линиями --- */
         .grid-overlay {
             position: fixed;
             top: 0;
@@ -51,6 +53,7 @@
             pointer-events: none;
         }
 
+        /* --- Контейнер --- */
         .container {
             position: relative;
             z-index: 1;
@@ -64,6 +67,7 @@
             box-shadow: 0 40px 100px rgba(0, 0, 0, 0.7);
         }
 
+        /* --- Шапка --- */
         .header {
             display: flex;
             align-items: center;
@@ -154,6 +158,7 @@
             color: #00d4ff;
         }
 
+        /* --- Разделитель --- */
         .divider {
             width: 100%;
             height: 1px;
@@ -161,6 +166,7 @@
             margin: 18px 0 22px 0;
         }
 
+        /* --- Секция "Что нового" --- */
         .whats-new {
             background: rgba(255, 255, 255, 0.03);
             border-radius: 20px;
@@ -199,6 +205,7 @@
             font-weight: 500;
         }
 
+        /* --- Фичи --- */
         .features {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -257,6 +264,7 @@
             font-weight: 600;
         }
 
+        /* --- Кнопка --- */
         .download-wrap {
             display: flex;
             flex-direction: column;
@@ -305,6 +313,7 @@
             color: rgba(255, 255, 255, 0.2);
         }
 
+        /* --- Футер --- */
         .footer {
             display: flex;
             justify-content: space-between;
@@ -345,6 +354,7 @@
             color: #ff6b9d;
         }
 
+        /* --- Адаптив --- */
         @media (max-width: 700px) {
             .container {
                 padding: 24px 18px;
@@ -414,9 +424,11 @@
 </head>
 <body>
 
+    <!-- Фон -->
     <div class="bg-glow"></div>
     <div class="grid-overlay"></div>
 
+    <!-- Основной контент -->
     <div class="container">
 
         <!-- Шапка -->
@@ -425,7 +437,7 @@
                 <span class="logo-icon">🚀</span>
                 <span class="logo-text">YumiHub</span>
             </div>
-            <span class="version-badge">v<strong>1.1.1</strong> · <span id="lang-badge">Мультиязычный</span></span>
+            <span class="version-badge">v<strong>1.2.0</strong> · <span id="lang-badge">Мультиязычный</span></span>
         </div>
 
         <div class="subtitle" id="subtitle">Ваш личный центр управления</div>
@@ -442,13 +454,13 @@
 
         <!-- Что нового -->
         <div class="whats-new">
-            <div class="title" id="whatsnew-title">✨ Что нового в версии 1.1.1</div>
+            <div class="title" id="whatsnew-title">✨ Что нового в версии 1.2.0</div>
             <div class="items" id="whatsnew-items">
-                <span>🌍 <strong id="lang-feature">4 языка</strong> — <span id="lang-list">Русский, Армянский, English, Français</span></span>
-                <span>💾 <strong id="backup-feature">Экспорт / импорт</strong> <span id="backup-desc">данных (ZIP-бэкапы)</span></span>
-                <span>🔔 <strong id="reminder-feature">Напоминания</strong> <span id="reminder-desc">о задачах</span></span>
+                <span>🔔 <strong id="reminder-feature">Напоминания</strong> <span id="reminder-desc">о задачах с уведомлениями</span></span>
                 <span>📂 <strong id="group-feature">Группировка</strong> <span id="group-desc">программ по категориям</span></span>
-                <span>🐛 <span id="fix-desc">Исправлены <strong>быстрые действия</strong> и ввод капитала</span></span>
+                <span>📊 <strong id="progress-feature">Прогресс-бар</strong> <span id="progress-desc">для задач</span></span>
+                <span>🎨 <strong id="ui-feature">Обновленный UI</strong> <span id="ui-desc">цветные кнопки и карточки</span></span>
+                <span>🐛 <span id="fix-desc">Исправлены <strong>быстрые действия</strong> и размер шрифта</span></span>
             </div>
         </div>
 
@@ -456,19 +468,19 @@
         <div class="features" id="features">
             <div class="feature-item">
                 <span class="icon">✅</span>
-                <span class="label"><strong id="f1-title">Задачи</strong><br id="f1-br"><span id="f1-desc">с приоритетами и напоминаниями</span></span>
+                <span class="label"><strong id="f1-title">Задачи</strong><br id="f1-br"><span id="f1-desc">с приоритетами, прогрессом и напоминаниями</span></span>
             </div>
             <div class="feature-item">
                 <span class="icon">📝</span>
-                <span class="label"><strong id="f2-title">Заметки</strong><br id="f2-br"><span id="f2-desc">с категориями и тегами</span></span>
+                <span class="label"><strong id="f2-title">Заметки</strong><br id="f2-br"><span id="f2-desc">с категориями, тегами и примерами</span></span>
             </div>
             <div class="feature-item">
                 <span class="icon">💰</span>
-                <span class="label"><strong id="f3-title">Финансы</strong><br id="f3-br"><span id="f3-desc">с начальным капиталом</span></span>
+                <span class="label"><strong id="f3-title">Финансы</strong><br id="f3-br"><span id="f3-desc">с начальным капиталом и статистикой</span></span>
             </div>
             <div class="feature-item">
                 <span class="icon">🚀</span>
-                <span class="label"><strong id="f4-title">Программы</strong><br id="f4-br"><span id="f4-desc">быстрый запуск</span></span>
+                <span class="label"><strong id="f4-title">Программы</strong><br id="f4-br"><span id="f4-desc">быстрый запуск с группировкой</span></span>
             </div>
             <div class="feature-item">
                 <span class="icon">🌍</span>
@@ -482,12 +494,11 @@
 
         <!-- Кнопка скачивания -->
         <div class="download-wrap">
-            <!-- Ссылка исправлена на рабочую! -->
             <a href="https://raw.githubusercontent.com/Prodebug/YumiHub/main/YumiHub.exe" class="download-btn" download>
                 <span id="download-text">⬇ Скачать YumiHub</span>
                 <span class="arrow">→</span>
             </a>
-            <span class="download-hint" id="download-hint">Версия 1.1.1 · ~48 МБ · Windows</span>
+            <span class="download-hint" id="download-hint">Версия 1.2.0 · ~50 МБ · Windows</span>
         </div>
 
         <!-- Футер -->
@@ -509,117 +520,117 @@
             ru: {
                 badge: 'Мультиязычный',
                 subtitle: 'Ваш личный центр управления',
-                whatsnew_title: '✨ Что нового в версии 1.1.1',
-                lang_feature: '4 языка',
-                lang_list: 'Русский, Армянский, English, Français',
-                backup_feature: 'Экспорт / импорт',
-                backup_desc: 'данных (ZIP-бэкапы)',
+                whatsnew_title: '✨ Что нового в версии 1.2.0',
                 reminder_feature: 'Напоминания',
-                reminder_desc: 'о задачах',
+                reminder_desc: 'о задачах с уведомлениями',
                 group_feature: 'Группировка',
                 group_desc: 'программ по категориям',
-                fix_desc: 'Исправлены быстрые действия и ввод капитала',
+                progress_feature: 'Прогресс-бар',
+                progress_desc: 'для задач',
+                ui_feature: 'Обновленный UI',
+                ui_desc: 'цветные кнопки и карточки',
+                fix_desc: 'Исправлены быстрые действия и размер шрифта',
                 f1_title: 'Задачи',
-                f1_desc: 'с приоритетами и напоминаниями',
+                f1_desc: 'с приоритетами, прогрессом и напоминаниями',
                 f2_title: 'Заметки',
-                f2_desc: 'с категориями и тегами',
+                f2_desc: 'с категориями, тегами и примерами',
                 f3_title: 'Финансы',
-                f3_desc: 'с начальным капиталом',
+                f3_desc: 'с начальным капиталом и статистикой',
                 f4_title: 'Программы',
-                f4_desc: 'быстрый запуск',
+                f4_desc: 'быстрый запуск с группировкой',
                 f5_title: '4 языка',
                 f5_desc: 'интерфейса',
                 f6_title: 'Автообновление',
                 f6_desc: 'встроенное',
                 download: '⬇ Скачать YumiHub',
-                download_hint: 'Версия 1.1.1 · ~48 МБ · Windows',
+                download_hint: 'Версия 1.2.0 · ~50 МБ · Windows',
                 footer: '© 2026 · Сделано с ❤️'
             },
             hy: {
                 badge: 'Բազմալեզու',
                 subtitle: 'Ձեր անձնական կառավարման կենտրոնը',
-                whatsnew_title: '✨ Ինչ նորություն կա 1.1.1 տարբերակում',
-                lang_feature: '4 լեզու',
-                lang_list: 'Ռուսերեն, Հայերեն, Անգլերեն, Ֆրանսերեն',
-                backup_feature: 'Արտահանում / ներմուծում',
-                backup_desc: 'տվյալների (ZIP-պահուստավորում)',
+                whatsnew_title: '✨ Ինչ նորություն կա 1.2.0 տարբերակում',
                 reminder_feature: 'Հիշեցումներ',
-                reminder_desc: 'առաջադրանքների մասին',
+                reminder_desc: 'առաջադրանքների մասին ծանուցումներով',
                 group_feature: 'Խմբավորում',
                 group_desc: 'ծրագրերի ըստ կատեգորիաների',
-                fix_desc: 'Ուղղվել են արագ գործողությունները և կապիտալի մուտքագրումը',
+                progress_feature: 'Առաջընթացի ցուցիչ',
+                progress_desc: 'առաջադրանքների համար',
+                ui_feature: 'Թարմացված ինտերֆեյս',
+                ui_desc: 'գունավոր կոճակներ և քարտեր',
+                fix_desc: 'Ուղղվել են արագ գործողությունները և տառատեսակի չափը',
                 f1_title: 'Առաջադրանքներ',
-                f1_desc: 'առաջնահերթություններով և հիշեցումներով',
+                f1_desc: 'առաջնահերթություններով, առաջընթացով և հիշեցումներով',
                 f2_title: 'Նոթեր',
-                f2_desc: 'կատեգորիաներով և պիտակներով',
+                f2_desc: 'կատեգորիաներով, պիտակներով և օրինակներով',
                 f3_title: 'Ֆինանսներ',
-                f3_desc: 'սկզբնական կապիտալով',
+                f3_desc: 'սկզբնական կապիտալով և վիճակագրությամբ',
                 f4_title: 'Ծրագրեր',
-                f4_desc: 'արագ գործարկում',
+                f4_desc: 'արագ գործարկում խմբավորմամբ',
                 f5_title: '4 լեզու',
                 f5_desc: 'ինտերֆեյս',
                 f6_title: 'Ինքնաթարմացում',
                 f6_desc: 'ներկառուցված',
                 download: '⬇ Ներբեռնել YumiHub',
-                download_hint: 'Տարբերակ 1.1.1 · ~48 ՄԲ · Windows',
+                download_hint: 'Տարբերակ 1.2.0 · ~50 ՄԲ · Windows',
                 footer: '© 2026 · Ստեղծված ❤️-ով'
             },
             en: {
                 badge: 'Multilingual',
                 subtitle: 'Your personal control center',
-                whatsnew_title: '✨ What\'s new in version 1.1.1',
-                lang_feature: '4 languages',
-                lang_list: 'Russian, Armenian, English, French',
-                backup_feature: 'Export / Import',
-                backup_desc: 'data (ZIP backups)',
+                whatsnew_title: '✨ What\'s new in version 1.2.0',
                 reminder_feature: 'Reminders',
-                reminder_desc: 'for tasks',
+                reminder_desc: 'for tasks with notifications',
                 group_feature: 'Grouping',
                 group_desc: 'apps by categories',
-                fix_desc: 'Fixed quick actions and capital input',
+                progress_feature: 'Progress bar',
+                progress_desc: 'for tasks',
+                ui_feature: 'Updated UI',
+                ui_desc: 'colorful buttons and cards',
+                fix_desc: 'Fixed quick actions and font size',
                 f1_title: 'Tasks',
-                f1_desc: 'with priorities and reminders',
+                f1_desc: 'with priorities, progress and reminders',
                 f2_title: 'Notes',
-                f2_desc: 'with categories and tags',
+                f2_desc: 'with categories, tags and examples',
                 f3_title: 'Finance',
-                f3_desc: 'with initial capital',
+                f3_desc: 'with initial capital and statistics',
                 f4_title: 'Apps',
-                f4_desc: 'quick launch',
+                f4_desc: 'quick launch with grouping',
                 f5_title: '4 languages',
                 f5_desc: 'interface',
                 f6_title: 'Auto-update',
                 f6_desc: 'built-in',
                 download: '⬇ Download YumiHub',
-                download_hint: 'Version 1.1.1 · ~48 MB · Windows',
+                download_hint: 'Version 1.2.0 · ~50 MB · Windows',
                 footer: '© 2026 · Made with ❤️'
             },
             fr: {
                 badge: 'Multilingue',
                 subtitle: 'Votre centre de contrôle personnel',
-                whatsnew_title: '✨ Quoi de neuf dans la version 1.1.1',
-                lang_feature: '4 langues',
-                lang_list: 'Russe, Arménien, Anglais, Français',
-                backup_feature: 'Exportation / Importation',
-                backup_desc: 'données (sauvegardes ZIP)',
+                whatsnew_title: '✨ Quoi de neuf dans la version 1.2.0',
                 reminder_feature: 'Rappels',
-                reminder_desc: 'pour les tâches',
+                reminder_desc: 'pour les tâches avec notifications',
                 group_feature: 'Regroupement',
                 group_desc: 'applications par catégories',
-                fix_desc: 'Correction des actions rapides et de la saisie du capital',
+                progress_feature: 'Barre de progression',
+                progress_desc: 'pour les tâches',
+                ui_feature: 'Interface mise à jour',
+                ui_desc: 'boutons et cartes colorés',
+                fix_desc: 'Correction des actions rapides et de la taille de police',
                 f1_title: 'Tâches',
-                f1_desc: 'avec priorités et rappels',
+                f1_desc: 'avec priorités, progression et rappels',
                 f2_title: 'Notes',
-                f2_desc: 'avec catégories et tags',
+                f2_desc: 'avec catégories, tags et exemples',
                 f3_title: 'Finances',
-                f3_desc: 'avec capital initial',
+                f3_desc: 'avec capital initial et statistiques',
                 f4_title: 'Applications',
-                f4_desc: 'lancement rapide',
+                f4_desc: 'lancement rapide avec regroupement',
                 f5_title: '4 langues',
                 f5_desc: 'interface',
                 f6_title: 'Mise à jour auto',
                 f6_desc: 'intégrée',
                 download: '⬇ Télécharger YumiHub',
-                download_hint: 'Version 1.1.1 · ~48 Mo · Windows',
+                download_hint: 'Version 1.2.0 · ~50 Mo · Windows',
                 footer: '© 2026 · Fait avec ❤️'
             }
         };
@@ -637,14 +648,14 @@
             document.getElementById('lang-badge').textContent = t.badge;
             document.getElementById('subtitle').textContent = t.subtitle;
             document.getElementById('whatsnew-title').textContent = t.whatsnew_title;
-            document.getElementById('lang-feature').textContent = t.lang_feature;
-            document.getElementById('lang-list').textContent = t.lang_list;
-            document.getElementById('backup-feature').textContent = t.backup_feature;
-            document.getElementById('backup-desc').textContent = t.backup_desc;
             document.getElementById('reminder-feature').textContent = t.reminder_feature;
             document.getElementById('reminder-desc').textContent = t.reminder_desc;
             document.getElementById('group-feature').textContent = t.group_feature;
             document.getElementById('group-desc').textContent = t.group_desc;
+            document.getElementById('progress-feature').textContent = t.progress_feature;
+            document.getElementById('progress-desc').textContent = t.progress_desc;
+            document.getElementById('ui-feature').textContent = t.ui_feature;
+            document.getElementById('ui-desc').textContent = t.ui_desc;
             document.getElementById('fix-desc').innerHTML = t.fix_desc;
             document.getElementById('f1-title').textContent = t.f1_title;
             document.getElementById('f1-desc').textContent = t.f1_desc;
