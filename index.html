@@ -24,7 +24,6 @@
             padding: 20px;
         }
 
-        /* --- Фоновый градиент --- */
         .bg-glow {
             position: fixed;
             top: 0;
@@ -38,7 +37,6 @@
                         #080818;
         }
 
-        /* --- Сетка с линиями --- */
         .grid-overlay {
             position: fixed;
             top: 0;
@@ -53,7 +51,6 @@
             pointer-events: none;
         }
 
-        /* --- Контейнер --- */
         .container {
             position: relative;
             z-index: 1;
@@ -67,7 +64,6 @@
             box-shadow: 0 40px 100px rgba(0, 0, 0, 0.7);
         }
 
-        /* --- Шапка --- */
         .header {
             display: flex;
             align-items: center;
@@ -127,7 +123,37 @@
             padding-left: 16px;
         }
 
-        /* --- Разделитель --- */
+        /* --- Языковой переключатель --- */
+        .lang-switcher {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.5);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .lang-btn.active {
+            background: rgba(0, 212, 255, 0.15);
+            border-color: rgba(0, 212, 255, 0.3);
+            color: #00d4ff;
+        }
+
         .divider {
             width: 100%;
             height: 1px;
@@ -135,7 +161,6 @@
             margin: 18px 0 22px 0;
         }
 
-        /* --- Секция "Что нового" --- */
         .whats-new {
             background: rgba(255, 255, 255, 0.03);
             border-radius: 20px;
@@ -174,7 +199,6 @@
             font-weight: 500;
         }
 
-        /* --- Фичи --- */
         .features {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -233,7 +257,6 @@
             font-weight: 600;
         }
 
-        /* --- Кнопка --- */
         .download-wrap {
             display: flex;
             flex-direction: column;
@@ -282,7 +305,6 @@
             color: rgba(255, 255, 255, 0.2);
         }
 
-        /* --- Футер --- */
         .footer {
             display: flex;
             justify-content: space-between;
@@ -323,7 +345,6 @@
             color: #ff6b9d;
         }
 
-        /* --- Адаптив --- */
         @media (max-width: 700px) {
             .container {
                 padding: 24px 18px;
@@ -365,6 +386,10 @@
                 align-items: flex-start;
                 gap: 8px;
             }
+
+            .lang-switcher {
+                justify-content: flex-start;
+            }
         }
 
         @media (max-width: 420px) {
@@ -389,11 +414,9 @@
 </head>
 <body>
 
-    <!-- Фон -->
     <div class="bg-glow"></div>
     <div class="grid-overlay"></div>
 
-    <!-- Основной контент -->
     <div class="container">
 
         <!-- Шапка -->
@@ -402,65 +425,73 @@
                 <span class="logo-icon">🚀</span>
                 <span class="logo-text">YumiHub</span>
             </div>
-            <span class="version-badge">v<strong>1.1.0</strong> · Мультиязычный</span>
+            <span class="version-badge">v<strong>1.1.1</strong> · <span id="lang-badge">Мультиязычный</span></span>
         </div>
 
-        <div class="subtitle">Ваш личный центр управления</div>
+        <div class="subtitle" id="subtitle">Ваш личный центр управления</div>
+
+        <!-- Переключатель языков -->
+        <div class="lang-switcher">
+            <button class="lang-btn active" data-lang="ru" onclick="switchLanguage('ru')">🇷🇺 Русский</button>
+            <button class="lang-btn" data-lang="hy" onclick="switchLanguage('hy')">🇦🇲 Հայերեն</button>
+            <button class="lang-btn" data-lang="en" onclick="switchLanguage('en')">🇬🇧 English</button>
+            <button class="lang-btn" data-lang="fr" onclick="switchLanguage('fr')">🇫🇷 Français</button>
+        </div>
 
         <div class="divider"></div>
 
         <!-- Что нового -->
         <div class="whats-new">
-            <div class="title">✨ Что нового в версии 1.1.0</div>
-            <div class="items">
-                <span>🌍 <strong>4 языка</strong> — Русский, Армянский, English, Français</span>
-                <span>💾 <strong>Экспорт / импорт</strong> данных (ZIP-бэкапы)</span>
-                <span>🔍 <strong>Глобальный поиск</strong> по всем разделам</span>
-                <span>🎨 <strong>Акцентный цвет</strong> в настройках</span>
-                <span>🐛 Исправлены <strong>быстрые действия</strong> и ввод капитала</span>
+            <div class="title" id="whatsnew-title">✨ Что нового в версии 1.1.1</div>
+            <div class="items" id="whatsnew-items">
+                <span>🌍 <strong id="lang-feature">4 языка</strong> — <span id="lang-list">Русский, Армянский, English, Français</span></span>
+                <span>💾 <strong id="backup-feature">Экспорт / импорт</strong> <span id="backup-desc">данных (ZIP-бэкапы)</span></span>
+                <span>🔔 <strong id="reminder-feature">Напоминания</strong> <span id="reminder-desc">о задачах</span></span>
+                <span>📂 <strong id="group-feature">Группировка</strong> <span id="group-desc">программ по категориям</span></span>
+                <span>🐛 <span id="fix-desc">Исправлены <strong>быстрые действия</strong> и ввод капитала</span></span>
             </div>
         </div>
 
         <!-- Особенности -->
-        <div class="features">
+        <div class="features" id="features">
             <div class="feature-item">
                 <span class="icon">✅</span>
-                <span class="label"><strong>Задачи</strong><br>с приоритетами</span>
+                <span class="label"><strong id="f1-title">Задачи</strong><br id="f1-br"><span id="f1-desc">с приоритетами и напоминаниями</span></span>
             </div>
             <div class="feature-item">
                 <span class="icon">📝</span>
-                <span class="label"><strong>Заметки</strong><br>с категориями</span>
+                <span class="label"><strong id="f2-title">Заметки</strong><br id="f2-br"><span id="f2-desc">с категориями и тегами</span></span>
             </div>
             <div class="feature-item">
                 <span class="icon">💰</span>
-                <span class="label"><strong>Финансы</strong><br>с начальным капиталом</span>
+                <span class="label"><strong id="f3-title">Финансы</strong><br id="f3-br"><span id="f3-desc">с начальным капиталом</span></span>
             </div>
             <div class="feature-item">
                 <span class="icon">🚀</span>
-                <span class="label"><strong>Программы</strong><br>быстрый запуск</span>
+                <span class="label"><strong id="f4-title">Программы</strong><br id="f4-br"><span id="f4-desc">быстрый запуск</span></span>
             </div>
             <div class="feature-item">
                 <span class="icon">🌍</span>
-                <span class="label"><strong>4 языка</strong><br>интерфейса</span>
+                <span class="label"><strong id="f5-title">4 языка</strong><br id="f5-br"><span id="f5-desc">интерфейса</span></span>
             </div>
             <div class="feature-item">
                 <span class="icon">🔄</span>
-                <span class="label"><strong>Автообновление</strong><br>встроенное</span>
+                <span class="label"><strong id="f6-title">Автообновление</strong><br id="f6-br"><span id="f6-desc">встроенное</span></span>
             </div>
         </div>
 
         <!-- Кнопка скачивания -->
         <div class="download-wrap">
             <a href="https://Prodebug.github.io/YumiHub/YumiHub.exe" class="download-btn" download>
-                <span>⬇ Скачать YumiHub</span>
+                <span id="download-text">⬇ Скачать YumiHub</span>
                 <span class="arrow">→</span>
             </a>
-            <span class="download-hint">Версия 1.1.0 · ~48 МБ · Windows</span>
+            <span class="download-hint" id="download-hint">Версия 1.1.1 · ~48 МБ · Windows</span>
         </div>
 
         <!-- Футер -->
         <div class="footer">
-            <div class="info">
+            <div class="info" id="footer-info">
                 © 2026 · Сделано с <span class="heart">❤️</span>
             </div>
             <div class="links">
@@ -471,6 +502,167 @@
         </div>
 
     </div>
+
+    <script>
+        const translations = {
+            ru: {
+                badge: 'Мультиязычный',
+                subtitle: 'Ваш личный центр управления',
+                whatsnew_title: '✨ Что нового в версии 1.1.1',
+                lang_feature: '4 языка',
+                lang_list: 'Русский, Армянский, English, Français',
+                backup_feature: 'Экспорт / импорт',
+                backup_desc: 'данных (ZIP-бэкапы)',
+                reminder_feature: 'Напоминания',
+                reminder_desc: 'о задачах',
+                group_feature: 'Группировка',
+                group_desc: 'программ по категориям',
+                fix_desc: 'Исправлены быстрые действия и ввод капитала',
+                f1_title: 'Задачи',
+                f1_desc: 'с приоритетами и напоминаниями',
+                f2_title: 'Заметки',
+                f2_desc: 'с категориями и тегами',
+                f3_title: 'Финансы',
+                f3_desc: 'с начальным капиталом',
+                f4_title: 'Программы',
+                f4_desc: 'быстрый запуск',
+                f5_title: '4 языка',
+                f5_desc: 'интерфейса',
+                f6_title: 'Автообновление',
+                f6_desc: 'встроенное',
+                download: '⬇ Скачать YumiHub',
+                download_hint: 'Версия 1.1.1 · ~48 МБ · Windows',
+                footer: '© 2026 · Сделано с ❤️'
+            },
+            hy: {
+                badge: 'Բազմալեզու',
+                subtitle: 'Ձեր անձնական կառավարման կենտրոնը',
+                whatsnew_title: '✨ Ինչ նորություն կա 1.1.1 տարբերակում',
+                lang_feature: '4 լեզու',
+                lang_list: 'Ռուսերեն, Հայերեն, Անգլերեն, Ֆրանսերեն',
+                backup_feature: 'Արտահանում / ներմուծում',
+                backup_desc: 'տվյալների (ZIP-պահուստավորում)',
+                reminder_feature: 'Հիշեցումներ',
+                reminder_desc: 'առաջադրանքների մասին',
+                group_feature: 'Խմբավորում',
+                group_desc: 'ծրագրերի ըստ կատեգորիաների',
+                fix_desc: 'Ուղղվել են արագ գործողությունները և կապիտալի մուտքագրումը',
+                f1_title: 'Առաջադրանքներ',
+                f1_desc: 'առաջնահերթություններով և հիշեցումներով',
+                f2_title: 'Նոթեր',
+                f2_desc: 'կատեգորիաներով և պիտակներով',
+                f3_title: 'Ֆինանսներ',
+                f3_desc: 'սկզբնական կապիտալով',
+                f4_title: 'Ծրագրեր',
+                f4_desc: 'արագ գործարկում',
+                f5_title: '4 լեզու',
+                f5_desc: 'ինտերֆեյս',
+                f6_title: 'Ինքնաթարմացում',
+                f6_desc: 'ներկառուցված',
+                download: '⬇ Ներբեռնել YumiHub',
+                download_hint: 'Տարբերակ 1.1.1 · ~48 ՄԲ · Windows',
+                footer: '© 2026 · Ստեղծված ❤️-ով'
+            },
+            en: {
+                badge: 'Multilingual',
+                subtitle: 'Your personal control center',
+                whatsnew_title: '✨ What\'s new in version 1.1.1',
+                lang_feature: '4 languages',
+                lang_list: 'Russian, Armenian, English, French',
+                backup_feature: 'Export / Import',
+                backup_desc: 'data (ZIP backups)',
+                reminder_feature: 'Reminders',
+                reminder_desc: 'for tasks',
+                group_feature: 'Grouping',
+                group_desc: 'apps by categories',
+                fix_desc: 'Fixed quick actions and capital input',
+                f1_title: 'Tasks',
+                f1_desc: 'with priorities and reminders',
+                f2_title: 'Notes',
+                f2_desc: 'with categories and tags',
+                f3_title: 'Finance',
+                f3_desc: 'with initial capital',
+                f4_title: 'Apps',
+                f4_desc: 'quick launch',
+                f5_title: '4 languages',
+                f5_desc: 'interface',
+                f6_title: 'Auto-update',
+                f6_desc: 'built-in',
+                download: '⬇ Download YumiHub',
+                download_hint: 'Version 1.1.1 · ~48 MB · Windows',
+                footer: '© 2026 · Made with ❤️'
+            },
+            fr: {
+                badge: 'Multilingue',
+                subtitle: 'Votre centre de contrôle personnel',
+                whatsnew_title: '✨ Quoi de neuf dans la version 1.1.1',
+                lang_feature: '4 langues',
+                lang_list: 'Russe, Arménien, Anglais, Français',
+                backup_feature: 'Exportation / Importation',
+                backup_desc: 'données (sauvegardes ZIP)',
+                reminder_feature: 'Rappels',
+                reminder_desc: 'pour les tâches',
+                group_feature: 'Regroupement',
+                group_desc: 'applications par catégories',
+                fix_desc: 'Correction des actions rapides et de la saisie du capital',
+                f1_title: 'Tâches',
+                f1_desc: 'avec priorités et rappels',
+                f2_title: 'Notes',
+                f2_desc: 'avec catégories et tags',
+                f3_title: 'Finances',
+                f3_desc: 'avec capital initial',
+                f4_title: 'Applications',
+                f4_desc: 'lancement rapide',
+                f5_title: '4 langues',
+                f5_desc: 'interface',
+                f6_title: 'Mise à jour auto',
+                f6_desc: 'intégrée',
+                download: '⬇ Télécharger YumiHub',
+                download_hint: 'Version 1.1.1 · ~48 Mo · Windows',
+                footer: '© 2026 · Fait avec ❤️'
+            }
+        };
+
+        function switchLanguage(lang) {
+            // Обновляем активную кнопку
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                }
+            });
+
+            const t = translations[lang];
+
+            document.getElementById('lang-badge').textContent = t.badge;
+            document.getElementById('subtitle').textContent = t.subtitle;
+            document.getElementById('whatsnew-title').textContent = t.whatsnew_title;
+            document.getElementById('lang-feature').textContent = t.lang_feature;
+            document.getElementById('lang-list').textContent = t.lang_list;
+            document.getElementById('backup-feature').textContent = t.backup_feature;
+            document.getElementById('backup-desc').textContent = t.backup_desc;
+            document.getElementById('reminder-feature').textContent = t.reminder_feature;
+            document.getElementById('reminder-desc').textContent = t.reminder_desc;
+            document.getElementById('group-feature').textContent = t.group_feature;
+            document.getElementById('group-desc').textContent = t.group_desc;
+            document.getElementById('fix-desc').innerHTML = t.fix_desc;
+            document.getElementById('f1-title').textContent = t.f1_title;
+            document.getElementById('f1-desc').textContent = t.f1_desc;
+            document.getElementById('f2-title').textContent = t.f2_title;
+            document.getElementById('f2-desc').textContent = t.f2_desc;
+            document.getElementById('f3-title').textContent = t.f3_title;
+            document.getElementById('f3-desc').textContent = t.f3_desc;
+            document.getElementById('f4-title').textContent = t.f4_title;
+            document.getElementById('f4-desc').textContent = t.f4_desc;
+            document.getElementById('f5-title').textContent = t.f5_title;
+            document.getElementById('f5-desc').textContent = t.f5_desc;
+            document.getElementById('f6-title').textContent = t.f6_title;
+            document.getElementById('f6-desc').textContent = t.f6_desc;
+            document.getElementById('download-text').textContent = t.download;
+            document.getElementById('download-hint').textContent = t.download_hint;
+            document.getElementById('footer-info').innerHTML = t.footer;
+        }
+    </script>
 
 </body>
 </html>
