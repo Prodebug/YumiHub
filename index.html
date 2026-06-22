@@ -482,7 +482,8 @@
 
         <!-- Кнопка скачивания -->
         <div class="download-wrap">
-            <a href="https://Prodebug.github.io/YumiHub/YumiHub.exe" class="download-btn" download>
+            <!-- Ссылка исправлена на рабочую! -->
+            <a href="https://raw.githubusercontent.com/Prodebug/YumiHub/main/YumiHub.exe" class="download-btn" download>
                 <span id="download-text">⬇ Скачать YumiHub</span>
                 <span class="arrow">→</span>
             </a>
@@ -624,7 +625,6 @@
         };
 
         function switchLanguage(lang) {
-            // Обновляем активную кнопку
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
                 if (btn.dataset.lang === lang) {
